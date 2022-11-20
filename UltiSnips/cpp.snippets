@@ -197,4 +197,70 @@ BOOST_AUTO_TEST_CASE(${4:TestCaseName})
 BOOST_AUTO_TEST_SUITE_END()
 
 endsnippet
+
+
+###############################################################
+### Custom
+
+snippet lc "Start normal lc program" b
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    ${0}
+    return 0;
+}
+endsnippet
+
+snippet treelc "Start lc program with tree" b
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+
+int main(int argc, char *argv[])
+{
+    ${0}
+    return 0;
+}
+endsnippet
+
+snippet iivec "Input integer vector"
+std::copy(std::istream_iterator<int>(std::cin), std::istream_iterator<int>(),
+          std::back_inserter(${0:v}));
+
+endsnippet
+
+snippet isvec "Input string vector"
+std::copy(std::istream_iterator<string>(std::cin), std::istream_iterator<string>(),
+          std::back_inserter(${0:v}));
+
+endsnippet
+
+snippet ai "Get int from arguments"
+std::atoi(argv[${0:1}]);
+endsnippet
+
+snippet as "Get string from arguments"
+std::string(argv[${0:1}]);
+endsnippet
+
+snippet ovec "Output vector" b
+for (auto &x : ${0:v})
+    std::cout << x << ", ";
+std::cout << std::endl;
+
+endsnippet
+
+
+
 # vim:ft=snippets:
