@@ -206,7 +206,10 @@ snippet lc "Start normal lc program" b
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(int argc, char *argv[])
+using uint = std::uint32_t;
+using ulong = std::uint64_t;
+
+int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[])
 {
     ${0}
     return 0;
@@ -216,6 +219,9 @@ endsnippet
 snippet treelc "Start lc program with tree" b
 #include <bits/stdc++.h>
 using namespace std;
+
+using uint = std::uint32_t;
+using ulong = std::uint64_t;
 
 struct TreeNode {
     int val;
@@ -227,7 +233,7 @@ struct TreeNode {
 };
 
 
-int main(int argc, char *argv[])
+int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[])
 {
     ${0}
     return 0;
@@ -258,7 +264,25 @@ snippet ovec "Output vector" b
 for (auto &x : ${0:v})
     std::cout << x << ", ";
 std::cout << std::endl;
+endsnippet
 
+snippet ii2dvec "Input 2d integer vector"
+char i, c;
+string line;
+${0:grid}.clear();
+std::getline(${1:cin}, line);
+vector<int> v{};
+
+std::istringstream iss(line);
+iss.get(c).get(c);
+for (i = iss.get(); i != ']'; ) {
+    v.emplace_back(i - '0');
+    iss >> c >> i;
+    if (c == ']') {
+        ${0:grid}.emplace_back(std::move(v));
+        if (i == ',') iss >> c >> i;
+    }
+}
 endsnippet
 
 
