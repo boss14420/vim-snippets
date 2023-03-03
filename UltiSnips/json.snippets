@@ -49,3 +49,38 @@ endglobal
 snippet b "Bool" b
 "${1:key}": $2`!p snip.rv=compB(t[2], ['true', 'false'])`,
 endsnippet
+
+snippet lchpy "launch.json for Python" b
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Project",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "justMyCode": false,
+      "env": {
+          "CONDA_PREFIX": "/home/boss14420/.conda/envs/fqa",
+          "DEPLOY_ENV": "local"
+      },
+      "python": "/home/boss14420/.conda/envs/fqa/bin/python"
+    },
+    {
+      "name": "FastAPI module",
+      "type": "python",
+      "request": "launch",
+      //"program": "${workspaceFolder}/main.py",
+      "justMyCode": false,
+      "module": "uvicorn",
+      "args": ['main:app', '--use-colors'],
+      "env": {
+          "CONDA_PREFIX": "/home/boss14420/.conda/envs/fqa",
+          "DEPLOY_ENV": "local",
+          "MONGODB_URI": "mongodb://127.0.0.1:27017/"
+      },
+      "python": "/home/boss14420/.conda/envs/fqa/bin/python"
+    }
+  ]
+}
+endsnippet
